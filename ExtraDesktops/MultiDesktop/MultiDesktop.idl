@@ -1,0 +1,54 @@
+// MultiDesktop.idl : IDL source for MultiDesktop
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MultiDesktop.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(D5B54637-9B96-443B-8839-B262DA2B7D62),
+	helpstring("IAveMultiDesktopHost Interface"),
+	pointer_default(unique)
+]
+interface IAveMultiDesktopHost : IUnknown{
+};
+[
+	object,
+	uuid(10A60489-E132-4A45-9D1B-64E1CA5F19BF),
+	helpstring("IAveShellBrowser Interface"),
+	pointer_default(unique)
+]
+interface IAveShellBrowser : IUnknown{
+	[helpstring("method OnMessage")] HRESULT OnMessage([in] MSG* pMsg);
+	[helpstring("method Stop")] HRESULT Stop(void);
+	[helpstring("method SaveState")] HRESULT SaveState(void);
+	[helpstring("method GetShellViewWindow")] HRESULT GetShellViewWindow([out,retval] HWND* pHwnd);
+};
+[
+	uuid(CD11C6E7-4219-4725-8804-7A8B2927A3EC),
+	version(1.0),
+	helpstring("MultiDesktop 1.0 Type Library")
+]
+library MultiDesktopLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(4F417BE4-88B0-4480-861D-FE1268675023),
+		helpstring("AveMultiDesktopHost Class")
+	]
+	coclass AveMultiDesktopHost
+	{
+		[default] interface IAveMultiDesktopHost;
+	};
+	[
+		uuid(073066F3-AC9F-4DE9-AF5A-ACC933445303),
+		helpstring("AveShellBrowser Class")
+	]
+	coclass AveShellBrowser
+	{
+		[default] interface IAveShellBrowser;
+	};
+};

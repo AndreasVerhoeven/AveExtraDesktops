@@ -1,0 +1,26 @@
+HKCR
+{
+	MultiDesktop.AveShellBrowser.1 = s 'AveShellBrowser Class'
+	{
+		CLSID = s '{073066F3-AC9F-4DE9-AF5A-ACC933445303}'
+	}
+	MultiDesktop.AveShellBrowser = s 'AveShellBrowser Class'
+	{
+		CLSID = s '{073066F3-AC9F-4DE9-AF5A-ACC933445303}'
+		CurVer = s 'MultiDesktop.AveShellBrowser.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {073066F3-AC9F-4DE9-AF5A-ACC933445303} = s 'AveShellBrowser Class'
+		{
+			ProgID = s 'MultiDesktop.AveShellBrowser.1'
+			VersionIndependentProgID = s 'MultiDesktop.AveShellBrowser'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{CD11C6E7-4219-4725-8804-7A8B2927A3EC}'
+		}
+	}
+}

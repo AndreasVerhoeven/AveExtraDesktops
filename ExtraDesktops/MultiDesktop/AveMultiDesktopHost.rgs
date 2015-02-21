@@ -1,0 +1,43 @@
+HKCR
+{
+	MultiDesktop.AveMultiDesktopHost.1 = s 'AveMultiDesktopHost Class'
+	{
+		CLSID = s '{4F417BE4-88B0-4480-861D-FE1268675023}'
+	}
+	MultiDesktop.AveMultiDesktopHost = s 'AveMultiDesktopHost Class'
+	{
+		CLSID = s '{4F417BE4-88B0-4480-861D-FE1268675023}'
+		CurVer = s 'MultiDesktop.AveMultiDesktopHost.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {4F417BE4-88B0-4480-861D-FE1268675023} = s 'AveMultiDesktopHost Class'
+		{
+			ProgID = s 'MultiDesktop.AveMultiDesktopHost.1'
+			VersionIndependentProgID = s 'MultiDesktop.AveMultiDesktopHost'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{CD11C6E7-4219-4725-8804-7A8B2927A3EC}'
+		}
+	}
+}
+
+HKCR
+{
+  NoRemove Directory
+  {
+	NoRemove BackGround
+	{
+		NoRemove ShellEx
+		{
+			NoRemove ContextMenuHandlers
+			{
+				ForceRemove MultiDesktop = s '{4F417BE4-88B0-4480-861D-FE1268675023}'
+			}
+		}
+	  }
+	}
+}
